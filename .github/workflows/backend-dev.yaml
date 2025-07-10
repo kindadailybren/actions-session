@@ -5,27 +5,27 @@ on:
 
 jobs:
   backend-ci-dev:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.13'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
 
-    - name: Install Dependencies
-      run: |
-        cd infra/lambdaFunctions/backend
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+      - name: Install Dependencies
+        run: |
+          cd infra/lambdaFunctions/backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-    - name: Run PyLint
-      continue-on-error: true
-      run: |
-        cd backend
-        pylint app.py controllers/ usecases/ --exit-zero
+      - name: Run PyLint
+        continue-on-error: true
+        run: |
+          cd backend
+          pylint app.py controllers/ usecases/ --exit-zero
 
   backend-deploy-dev:
     needs: backend-ci-dev
@@ -72,8 +72,8 @@ jobs:
         cd infra
         npm install
         # Update your Lambda function name here
-        cdk deploy dev-StatelessStack --require-approval never
+        cdk deploy dev-StatelessStack-actionssesh --require-approval never
 
     - name: Verify Deployment
       run: |
-        aws lambda get-function --function-name dev-Lambda-SampleFunction
+        aws lambda get-function --function-name dev-Lambda-actions
