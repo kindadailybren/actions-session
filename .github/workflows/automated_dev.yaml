@@ -22,7 +22,7 @@ jobs:
         with:
           filters: |
             backend:
-              - 'infra/lambdaFunctions/backend/**'
+              - 'infra/lambdaFunctions/**'
             frontend:
               - 'frontend/**'
 
