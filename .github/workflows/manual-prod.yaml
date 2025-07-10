@@ -1,4 +1,4 @@
-name: Automated Deployment to Prod
+name: Manual Deployment to Prod
 
 on:
   workflow_dispatch:
