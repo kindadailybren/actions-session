@@ -41,7 +41,7 @@ export class LambdaConstruct extends Construct {
       code: lambda.Code.fromAsset(
         path.resolve(
           __dirname,
-          `../../../lambdaFunctions/backend`,
+          `../../../lambdaFunctions/backend/aws_lambda.zip`,
         ),
       ),
       memorySize: 512,
