@@ -1,7 +1,7 @@
 name: Automated Deployment to Dev
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, reopened, synchronize]
     branches:
       - main
@@ -20,6 +20,7 @@ jobs:
       - uses: dorny/paths-filter@v2
         id: changes
         with:
+          list-files: shell
           filters: |
             backend:
               - 'infra/**'
