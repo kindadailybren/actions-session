@@ -27,14 +27,14 @@ jobs:
             - 'frontend/**'
 
   backend-dev:
-  needs: detect-changes
-  if: needs.detect-changes.outputs.backend == 'true'
-  uses: ./.github/workflows/backend-dev.yaml
-  secrets: inherit
+    needs: detect-changes
+    if: needs.detect-changes.outputs.backend == 'true'
+    uses: ./.github/workflows/backend-dev.yaml
+    secrets: inherit
 
   frontend-dev:
-  needs: detect-changes
-  if: needs.detect-changes.outputs.frontend == 'true'
-  uses: ./.github/workflows/frontend-dev.yaml
-  secrets: inherit
+    needs: detect-changes
+    if: needs.detect-changes.outputs.frontend == 'true'
+    uses: ./.github/workflows/frontend-dev.yaml
+    secrets: inherit
 
