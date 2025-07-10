@@ -72,8 +72,8 @@ jobs:
         cd infra
         npm install
         # Update your Lambda function name here
-        cdk deploy dev-StatelessStack --require-approval never
+        cdk deploy dev-StatelessStack-actionssesh --require-approval never
 
     - name: Verify Deployment
       run: |
-        aws lambda get-function --function-name dev-Lambda-SampleFunction
+        aws lambda get-function --function-name dev-Lambda-actions
