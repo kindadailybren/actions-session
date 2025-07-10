@@ -18,13 +18,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v2
-      id: changes
-      with:
-        filters: |
-          backend:
-            - 'infra/lambdafunctions/backend/**'
-          frontend:
-            - 'frontend/**'
+        id: changes
+        with:
+          filters: |
+            backend:
+              - 'infra/lambdafunctions/backend/**'
+            frontend:
+              - 'frontend/**'
 
   backend-dev:
     needs: detect-changes
