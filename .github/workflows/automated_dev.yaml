@@ -16,7 +16,11 @@ jobs:
         backend: ${{ steps.changes.outputs.backend }}
         frontend: ${{ steps.changes.outputs.frontend }}
       steps:
-        - uses: actions/checkout@v4
+        - name: Checkout PR source
+          uses: actions/checkout@v4
+          with:
+            ref: refs/pull/${{ github.event.pull_request.number }}/merge
+            fetch-depth: 0
 
         - name: Detect Changed Paths
           id: changes
